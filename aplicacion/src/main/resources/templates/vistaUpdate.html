@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>update2</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles.min.css">
+
+    <link rel="stylesheet" href="/Login-Form-Clean.css" type="text/css"/>
+</head>
+
+<body>
+    <section class="login-clean" style="height: 700px;">
+        <form th:action = "@{/actualizar/factura/{numeroFactura}}" th:object="${factura}" method="post" th:each="factura: ${facturas}" >
+            <h1 class="text-center">Actualizar</h1>
+            <div class="illustration"></div>
+            <label class="form-label" style="font-size: 15px;font-weight: bold;">Número Factura:</label><input class="form-control " id = "numerofactura" type="text" th:value="${numeroFactura}" th:name="numeroFactura"  placeholder="Número factura"  readonly="">
+                <div class="illustration"></div>
+                <label class="form-label" style="font-size: 15px;font-weight: bold;">Código Producto:</label><input class="form-control" id = "codigoproducto" type="text" th:name ="codigoProducto" placeholder="Código producto" th:value="${factura.producto.codProducto}" list="brow" >
+            <datalist id="brow" >
+                <option th:each="producto: ${productos}" th:value="${producto.codProducto}" >
+                
+             </datalist> 
+            <div class="mb-3"></div>
+            <label class="form-label" style="font-size: 15px;font-weight: bold;">Fecha:</label><input class="form-control" id = "fecha" type="date" th:name = "fechaVenta" th:value="${factura.fechaVenta}">
+            <div style="margin: 0px 0px 16px;"></div>
+            <label class="form-label" style="font-size: 15px;font-weight: bold;">Código Vendedor:</label><input class="form-control" id = "codigovendedor" type="text" th:name = "codigoVendedor" placeholder="Código vendedor" th:value="${factura.vendedor.codVendedor}" list="brow2">
+            <datalist id="brow2" >
+                <option th:each="vendedor: ${vendedores}" th:value="${vendedor.codVendedor}"  >
+                
+            </datalist>
+            <div class="illustration"></div>
+            <label class="form-label" style="font-size: 15px;font-weight: bold;">Valor Factura:</label><input class="form-control" id = "valorfactura" type="text" th:name = "valorFactura" placeholder="Valor factura" th:value="${factura.valorFactura}">
+            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Guardar</button></div>
+        </form>
+    
+    </section>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

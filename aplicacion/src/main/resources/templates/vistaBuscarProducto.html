@@ -1,0 +1,57 @@
+<html lang="en">
+
+    <h2 class="text-center"> Sistema de Facturación</h2>
+    <h3 class="text-center"> Componente de Gestión de Productos</h2>
+    <h4 class="text-center">Eliminar Producto</h4>
+    
+    <div class="container-sm">     
+    
+    
+<head xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Buscar y eliminar producto</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    
+</head>
+
+<body>
+    <section class="login-clean">
+        <form th:action = "@{/eliminar/producto}" th:object="${producto}" method="post">
+           
+           <div class="illustration"></div><input class="form-control" id = "codigoProducto" type="text" th:field ="*{codigoProducto}" placeholder="Digite el código del producto a eliminar"/>           <div style="margin: 10px 10px 30px;"></div>
+           <small class="form-text text-muted"><font color ="silver">El código de producto se compone de 5 letras y 3 números $</small> 
+           <br/> <br/>               
+            <input class="btn btn-success" type="submit" value="Eliminar Producto">
+           
+           
+        </form>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+<style type="text/css">
+
+
+input {
+  font-weight: bold;
+  font-size: 10px;
+}
+
+label {
+  text-align: center;
+}
+
+form {
+  font-weight: bold;
+  font-size: 20px;
+
+}
+
+</style>
+    
+</div> 
+        
+        
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>update2</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles.min.css">
+
+    <link rel="stylesheet" href="/Login-Form-Clean.css" type="text/css"/>
+</head>
+
+<body>
+    <section class="login-clean" style="height: 700px;">
+        <form th:action = "@{/actualizar/producto/{codigoProducto}}" th:object="${producto}" method="post">
+            <h1 class="text-center">Actualizar</h1>
+            <div class="illustration"></div>
+            <label class="form-label" style="font-size: 15px;font-weight: bold;">Codigo producto:</label><input class="form-control " id = "codigoProducto" type="text" th:value="${codigoProducto}" th:name="codigoProducto"  placeholder="Codigo producto"  readonly="">
+                <div class="illustration"></div>
+                <label class="form-label" style="font-size: 15px;font-weight: bold;">Nombre Producto:</label><input class="form-control" id = "nombreProducto" type="text" th:name ="nombreProducto" placeholder="Nombre producto" th:value="${producto.nombreProducto}" >
+
+            <div class="mb-3"></div>
+            <label class="form-label" style="font-size: 15px;font-weight: bold;">Descripción producto:</label><input class="form-control" id = "descripcionProducto" type="text" th:name = "descripcionProducto" th:value="${producto.descripcionProducto}">
+            <div style="margin: 0px 0px 16px;"></div>
+            <label class="form-label" style="font-size: 15px;font-weight: bold;">Precio Producto:</label><input class="form-control" id = "precioProducto" type="text" th:name = "precioProducto" placeholder="Precio producto" th:value="${producto.precioProducto}">
+            <div class="illustration"></div>
+            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Guardar</button></div>
+        </form>
+    </section>
+    <a href="/Productos"><button class="btn btn-primary d-block w-100" type="submit">VOLVER</button></a> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
